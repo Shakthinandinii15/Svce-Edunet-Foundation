@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVCE Canteen</title>
+  <style>
+    /* Styles for login page */
+    body {
+      background-color: #87CEEB; /* Light Blue */
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      width: 500px;
+      margin: 100px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px #ccc;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="C:\Users\Admin\Pictures\Assign Video ppt\svce logo.jpg" alt="SVCE Logo" class="logo">
+    <h1>Welcome to SVCE Canteen</h1>
+    <button onclick="openMenu()">Enter Canteen</button>
+  </div>
+
+  <script>
+    function openMenu() {
+      // Open a new tab
+      var menuPage = window.open("", "_blank");
+
+      // Set the content of the new tab
+      menuPage.document.write('<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SVCE Canteen Menu</title><style>/* Styles for menu page */body {background-color: #87CEEB; /* Light Blue */font-family: Arial, sans-serif;text-align: center;}.smiley-background {background-image: url("smiley.png");background-repeat: repeat;}.h1 {font-size: 24px;margin-bottom: 20px;}.menu-items {list-style: none;padding: 0;}.menu-item {margin: 10px 0;display: flex;align-items: center;}.menu-item img {width: 100px;margin-right: 10px;}.menu-item h2 {font-size: 18px;margin: 0;}.menu-item span {font-weight: bold;margin-left: 10px;}</style></head><body class="smiley-background"><h1>SVCE Canteen Menu</h1><ul class="menu-items" id="veg-items"><h3><b>Veg Items :)</b></h3></ul><ul class="menu-items" id="non-veg-items"><h3><b>Non-Veg Items ;)</b></h3></ul></body></html>');
+
+      // Function to add food items to the new tab
+      function addFoodItem(category, name, imageSrc, price) {
+        var menuItemsContainer = menuPage.document.getElementById(category);
+
+        var menuItem = menuPage.document.createElement('li');
+        menuItem.classList.add('menu-item');
+
+        var foodImage = menuPage.document.createElement('img');
+        foodImage.src = imageSrc;
+
+        var foodName = menuPage.document.createElement('h2');
+        foodName.textContent = name;
+
+        var foodPrice = menuPage.document.createElement('span');
+        foodPrice.textContent = '₹' + price;
+
+        menuItem.appendChild(foodImage);
+        menuItem.appendChild(foodName);
+        menuItem.appendChild(foodPrice);
+
+        menuItemsContainer.appendChild(menuItem);
+      }
+
+      // Sample food items (replace with your own)
+      addFoodItem("veg-items", "Masala Dosa", "C:\\Users\\Admin\\Pictures\\Dosa.jfif", 45);
+      addFoodItem("veg-items", "Sambar Idli", "C:\\Users\\Admin\\Pictures\\idlii1.jpg", 30);
+      addFoodItem("veg-items", "Curd Rice", "C:\\Users\\Admin\\Pictures\\curdddddddddddd.jfif", 35);
+      addFoodItem("veg-items", "Lemon Rice", "C:\\Users\\Admin\\Pictures\\lemon.jfif", 35);
+      addFoodItem("veg-items", "Bisi bele bath", "C:\\Users\\Admin\\Pictures\\bisiiiii.jfif", 45);
+
+      addFoodItem("non-veg-items", "Mutton Biriyani", "C:\\Users\\Admin\\Pictures\\muttonbiriyani.jpg", 150);
+      addFoodItem("non-veg-items", "Chicken Biriyani", "C:\\Users\\Admin\\Pictures\\chickennnnn.jpg", 120);
+      addFoodItem("non-veg-items", "Chicken Kabab", "C:\\Users\\Admin\\Pictures\\kabbbbaaaaaaaa.jfif", 135);
+      addFoodItem("non-veg-items", "Fish curry", "C:\\Users\\Admin\\Pictures\\fish.png", 85);
+      addFoodItem("non-veg-items", "Kushka", "C:\\Users\\Admin\\Pictures\\kushkaaa11111.jpg", 65);
+    }
+  </script>
+</body>
+</html>
